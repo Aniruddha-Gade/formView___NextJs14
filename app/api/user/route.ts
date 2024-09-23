@@ -16,19 +16,41 @@ export async function POST(req: Request) {
         if (!name || !email || !role || !password || !salary) {
             return NextResponse.json({
                 message: "name, email, role, password, salary fields are required",
-                success: false
+                success: false,
+                status: 403
             });
         }
 
         const newUser = await User.create({ name, email, role, password, salary });
 
         return NextResponse.json({
-            message: "New user addedd successfully",
+            message: "New user added successfully",
             status: true,
             newUser,
         });
     } catch (error: any) {
-        console.log(error)
+        console.log("Error while adding new user = ", error)
+        return NextResponse.json({ error: error.message }, { status: 500 });
+    }
+}
+
+
+
+
+// =========================== GET request (Get all users) ===========================
+export async function GET(req: Request) {
+    try {
+        await connectToDatabase(); // connect to DB
+
+        const allUsers = await User.find({});
+
+        return NextResponse.json({
+            message: "All users fetched successfully",
+            allUsers,
+            status: true,
+        });
+    } catch (error: any) {
+        console.log("Error while fetching all users = ", error)
         return NextResponse.json({ error: error.message }, { status: 500 });
     }
 }
