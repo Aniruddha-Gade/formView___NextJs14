@@ -11,9 +11,10 @@ export async function POST(req: Request) {
     try {
         await connectToDatabase(); // connect to DB
 
-        const { name, email, role, password, salary } = await req.json() as IUserBody;
+        const { name, email, role, password, salary , experience} = await req.json() as IUserBody;
 
-        if (!name || !email || !role || !password || !salary) {
+        // validate data
+        if (!name || !email || !role || !password || !salary || !experience) {
             return NextResponse.json({
                 message: "name, email, role, password, salary fields are required",
                 success: false,
@@ -21,7 +22,11 @@ export async function POST(req: Request) {
             });
         }
 
-        const newUser = await User.create({ name, email, role, password, salary });
+        // create new user in DB
+        const newUser = await User.create({ name, email, role, password, salary, experience });
+       
+        // removing password from object, not from DB
+        newUser.password = ""
 
         return NextResponse.json({
             message: "New user added successfully",

@@ -8,6 +8,7 @@ export interface IUser extends Document {
     password: string;
     role: string;
     salary: number;
+    experience: 'Fresher' | 'Experienced';
 }
 
 
@@ -30,6 +31,10 @@ const userSchema = new Schema<IUser>({
 
     },
     role: {
+        type: String,
+        required: true
+    },
+    experience: {
         type: String,
         enum: ['Fresher', 'Experienced'],
         required: true

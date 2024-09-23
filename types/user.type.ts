@@ -1,7 +1,11 @@
 export interface IUserBody {
     name: string;
     email: string;
-    role: 'Fresher' | 'Experienced';
+    role: string;
+    experience: 'Fresher' | 'Experienced';
     password: string;
     salary: number;
 }
+
+
+

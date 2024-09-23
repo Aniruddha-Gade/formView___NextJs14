@@ -23,8 +23,9 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                         {
                             sidebarData.map((link) => (
                                 <Link
+                                    key={link.name}
                                     href={link.url}
-                                    className={`w-full flex gap-3 hover:bg-slate-700 items-center px-3 py-4 rounded-s-xl rounded-r-xl `}
+                                    className={`w-full flex gap-3 hover:bg-slate-700 items-center px-3 py-4 `}
                                 >
                                     <Image
                                         src={link.icon}
