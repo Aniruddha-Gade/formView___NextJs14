@@ -1,29 +1,22 @@
-import { MongoClient, Db } from 'mongodb'
-
-let client: MongoClient | null = null
-let db: Db | null = null
+import mongoose from 'mongoose';
 
 
-const uri: string = process.env.MONGODB_URI || ''
-const dbName: string = process.env.MONGODB_DB || ''
+const MONGODB_URI = process.env.MONGODB_URI;
 
-if (!uri || !dbName) {
-    throw new Error('Please define the MONGODB_URI and MONGODB_DB')
-}
+let cached = (global as any).mongoose || { conn: null, promise: null };
 
+export const connectToDatabase = async () => {
+  if (cached.conn) return cached.conn;
 
-// Create the MongoDB connection
-export async function connectToDatabase(): Promise<Db> {
-    if (db) {
-        // Return the database if already connected
-        return db
-    }
+  if (!MONGODB_URI) throw new Error('MONGODB_URI is missing');
 
-    if (!client) {
-        client = new MongoClient(uri)
-        await client.connect()
-    }
+  cached.promise = cached.promise || mongoose.connect(MONGODB_URI, {
+    dbName: 'formView',
+    bufferCommands: false,
+  })
 
-    db = client.db(dbName)
-    return db
+  cached.conn = await cached.promise;
+
+  console.log("Database Connected Successfully 🟢🟢")
+  return cached.conn;
 }
