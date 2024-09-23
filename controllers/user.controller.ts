@@ -12,7 +12,6 @@ interface IAddUserBody {
     salary: number,
 }
 
-
 export async function addUser(data: IAddUserBody) {
     try {
         const user = new User(data);
@@ -20,5 +19,18 @@ export async function addUser(data: IAddUserBody) {
         return user;
     } catch (error: any) {
         throw new Error('Error while adding user => ', error);
+    }
+}
+
+
+
+
+// =========================== GET ALL USERS ===========================
+export async function getAllUsers() {
+    try {
+        const users = await User.find();
+        return users;
+    } catch (error: any) {
+        throw new Error('Error fetching all users => ', error);
     }
 }
