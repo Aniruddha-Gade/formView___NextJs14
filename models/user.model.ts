@@ -9,6 +9,7 @@ export interface IUser extends Document {
     role: string;
     salary: number;
     experience: 'Fresher' | 'Experienced';
+    createdAt: Date;
 }
 
 
@@ -43,8 +44,11 @@ const userSchema = new Schema<IUser>({
         type: Number,
         required: true
     },
+    createdAt: {
+        type: Date
+    },
 
-});
+}, { timestamps: true });
 
 
 

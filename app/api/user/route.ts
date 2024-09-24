@@ -11,7 +11,7 @@ export async function POST(req: Request) {
     try {
         await connectToDatabase(); // connect to DB
 
-        const { name, email, role, password, salary , experience} = await req.json() as IUserBody;
+        const { name, email, role, password, salary, experience } = await req.json() as IUserBody;
 
         // validate data
         if (!name || !email || !role || !password || !salary || !experience) {
@@ -23,8 +23,8 @@ export async function POST(req: Request) {
         }
 
         // create new user in DB
-        const newUser = await User.create({ name, email, role, password, salary, experience });
-       
+        const newUser = await User.create({ name, email, role, password, salary, experience, createdAt: Date.now(), });
+
         // removing password from object, not from DB
         newUser.password = ""
 
@@ -47,7 +47,7 @@ export async function GET(req: Request) {
     try {
         await connectToDatabase(); // connect to DB
 
-        const allUsers = await User.find({});
+        const allUsers = await User.find({}).sort({ createdAt: -1 })
 
         return NextResponse.json({
             message: "All users fetched successfully",
