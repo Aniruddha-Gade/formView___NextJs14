@@ -33,10 +33,4 @@ export const sidebarData = [
         url: "/dashboard/view-isr",
         icon: "/assets/view-icon.png"
     },
-    {
-        name: "View Data (SSG)",
-        url: "/dashboard/view-ssg",
-        icon: "/assets/view-icon.png"
-    },
-
 ]
