@@ -2,13 +2,14 @@
 
 import { useState, useEffect } from 'react';
 import { UserTable } from '../../components/table/UserTable'
+import { IUserBody } from "../../../types/user.type"
 
 
 
 
 export default function ViewCSRPage() {
-    const [allUsers, setAllUsers] = useState([]);
-    const [loading, setLoading]=useState(false)
+    const [allUsers, setAllUsers] = useState<IUserBody[]>([]);
+    const [loading, setLoading] = useState<boolean>(false);
 
     useEffect(() => {
         const fetchAllUsersData = async () => {
