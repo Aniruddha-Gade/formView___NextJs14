@@ -24,7 +24,7 @@ export default async function ViewSSRPage() {
     return (
         <div className='p-5 text-white  '>
             <h1 className='text-3xl font-bold text-green-500 '>
-                All Users Data
+                All Users Data (SSR)
             </h1>
 
             {/* render table */}

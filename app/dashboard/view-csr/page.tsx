@@ -27,7 +27,7 @@ export default function ViewCSRPage() {
     return (
         <div className='p-5 text-white  '>
             <h1 className='text-3xl font-bold text-green-500 '>
-                All Users Data
+                All Users Data (CSR)
             </h1>
 
             {/* render table */}
