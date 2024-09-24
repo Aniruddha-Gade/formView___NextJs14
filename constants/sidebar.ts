@@ -28,9 +28,4 @@ export const sidebarData = [
         url: "/dashboard/view-ssr",
         icon: "/assets/view-icon.png"
     },
-    {
-        name: "View Data (ISR)",
-        url: "/dashboard/view-isr",
-        icon: "/assets/view-icon.png"
-    },
 ]
