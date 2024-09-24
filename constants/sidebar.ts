@@ -4,6 +4,11 @@
 
 export const sidebarData = [
     {
+        name: "Home",
+        url: "/",
+        icon: "/assets/home-icon.png"
+    },
+    {
         name: "Dashboard",
         url: "/dashboard",
         icon: "/assets/dashboard-icon.png"
