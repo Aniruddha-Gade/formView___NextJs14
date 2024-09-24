@@ -126,12 +126,12 @@ export const columns: ColumnDef<IUserBody>[] = [
 
 interface DataTableProps {
     data: IUserBody[];
-    loading: boolean;
+    loading?: boolean;
 }
 
 
 
-export const UserTable: React.FC<DataTableProps> = ({ data, loading }) => {
+export const UserTable: React.FC<DataTableProps> = ({ data, loading=false }) => {
     const [sorting, setSorting] = React.useState<SortingState>([])
     const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
     const [columnVisibility, setColumnVisibility] =
