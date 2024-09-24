@@ -5,6 +5,8 @@ export interface IUserBody {
     experience: 'Fresher' | 'Experienced';
     password: string;
     salary: number;
+    createdAt: Date;
+    updatedAt: Date;
 }
 
 
