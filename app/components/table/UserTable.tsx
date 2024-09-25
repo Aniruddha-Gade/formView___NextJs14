@@ -52,7 +52,7 @@ export const columns: ColumnDef<IUserBody>[] = [
                 </Button>
             )
         },
-        cell: ({ row }) => <div className="lowercase">{row.getValue("name")}</div>,
+        cell: ({ row }) => <div className="capitalize">{row.getValue("name")}</div>,
     },
     {
         accessorKey: "email",

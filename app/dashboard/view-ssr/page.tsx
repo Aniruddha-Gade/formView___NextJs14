@@ -25,7 +25,7 @@ export default async function ViewSSRPage() {
 
     return (
         <div className='p-5 text-white  '>
-            <h1 className='text-3xl font-bold text-green-500 '>
+            <h1 className='text-3xl font-bold text-yellow-500 '>
                 All Users Data (SSR)
             </h1>
 
