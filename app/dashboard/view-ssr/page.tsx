@@ -18,7 +18,7 @@ import { IUserBody } from "../../../types/user.type"
 const fetchAllUsers = async (): Promise<IUserBody[]> => {
     try {
         const apiUrl = process.env.NODE_ENV === 'production'
-            ? (process.env.PRODUCTION_API_URL as string) || 'https://your-production-url/api/user'
+            ? (process.env.PRODUCTION_API_URL as string) || 'https://form-view.vercel.app/api/user'
             : 'http://localhost:3000/api/user';
 
         const response = await fetch(apiUrl, { cache: 'no-store' });
