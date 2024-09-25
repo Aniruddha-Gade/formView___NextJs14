@@ -5,9 +5,10 @@ import { IUserBody } from "../../../types/user.type"
 
 // Server-side data fetching in the page component
 const fetchAllUsers = async (): Promise<IUserBody[]> => {
-    const response = await fetch('http://localhost:3000/api/user', {
-        cache: 'no-store', 
-    });
+    const apiUrl: string = process.env.NODE_ENV === 'production'
+        ? (process.env.PRODUCTION_API_URL as string) : 'http://localhost:3000/api/user';  // Development URL
+
+    const response = await fetch(apiUrl, { cache: 'no-store' });
 
     const users = await response.json();
     return users?.allUsers || [];
