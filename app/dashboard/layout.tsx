@@ -5,7 +5,7 @@ import { sidebarData } from '../../constants/sidebar';
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
     return (
-        <div className="flex">
+        <div className="flex flex-col md:flex-row">
 
             {/* dynamic heading */}
             <Heading
@@ -15,7 +15,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             />
 
 
-            <div className={`sticky w-[20%] h-[400px]  bg-slate-800 bg-opacity-90 border border-[#ffffff1d] 
+            <div className={`sticky w-[80%] md:w-[20%] h-[400px] bg-slate-800 bg-opacity-90 border border-[#ffffff1d] 
                              rounded-xl shadow-xl my-[80px] ml-[30px] `}
             >
                 <nav className="w-full flex items-center justify-center gap-5 h-full bg-slate-80 ">
@@ -42,7 +42,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 </nav>
             </div>
 
-            <main className="w-full p-4">{children}</main>
+            <main className="w-full md:p-4">{children}</main>
         </div>
     );
 }

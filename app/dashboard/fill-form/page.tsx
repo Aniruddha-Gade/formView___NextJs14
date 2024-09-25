@@ -67,14 +67,14 @@ const page = () => {
 
   return (
     <div className='p-5 text-white  '>
-      <h1 className='text-3xl font-bold text-green-500 '>
+      <h1 className='text-3xl font-bold text-green-500 text-center md:text-left'>
         Create New User
       </h1>
 
 
 
       <div className='flex flex-col min-h-screen mt-5 '>
-        <div className='bg-slate-800 h-full w-[60%] p-9 rounded-xl'>
+        <div className='bg-slate-800 h-full w-[60% p-4 py-9 md:p-9 rounded-xl'>
 
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-5 ">
@@ -96,7 +96,7 @@ const page = () => {
 
 
               {/* email  */}
-              <div className='flex gap-5 '>
+              <div className='flex flex-col md:flex-row gap-5 '>
                 <div className='w-full flex flex-col gap-5 md:flex-row'>
                   <FormField
                     control={form.control}
